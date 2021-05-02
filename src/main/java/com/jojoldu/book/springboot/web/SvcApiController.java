@@ -16,28 +16,28 @@ public class SvcApiController {
 
     private final SvcService svcService;
 
-    @PostMapping("/api/v1/posts")
+    @PostMapping("/api/v1/svc")
     public Long save(@RequestBody SvcSaveRequestDto requestDto) {
         return svcService.save(requestDto);
     }
 
-    @PutMapping("/api/v1/posts/{id}")
+    @PutMapping("/api/v1/svc/{id}")
     public Long update(@PathVariable Long id, @RequestBody SvcUpdateRequestDto requestDto) {
         return svcService.update(id, requestDto);
     }
 
-    @DeleteMapping("/api/v1/posts/{id}")
+    @DeleteMapping("/api/v1/svc/{id}")
     public Long delete(@PathVariable Long id) {
         svcService.delete(id);
         return id;
     }
 
-    @GetMapping("/api/v1/posts/{id}")
+    @GetMapping("/api/v1/svc/{id}")
     public SvcResponseDto findById(@PathVariable Long id) {
         return svcService.findById(id);
     }
 
-    @GetMapping("/api/v1/posts/list")
+    @GetMapping("/api/v1/svc/list")
     public List<SvcListResponseDto> findAll() {
         return svcService.findAllDesc();
     }
