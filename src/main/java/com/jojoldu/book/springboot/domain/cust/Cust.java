@@ -1,15 +1,13 @@
 package com.jojoldu.book.springboot.domain.cust;
 
 import com.jojoldu.book.springboot.domain.BaseTimeEntity;
+import com.jojoldu.book.springboot.domain.svc.Svc;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @NoArgsConstructor
@@ -20,7 +18,7 @@ public class Cust extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 10, nullable = false)
+    @Column(length = 10, nullable = false, name = "CUST_NUM")
     private String cust_num;
 
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -39,4 +37,6 @@ public class Cust extends BaseTimeEntity {
         this.acnt_num = acnt_num;
     }
 
+    @OneToMany(mappedBy = "cust")
+    private Collection<Svc> svc;
 }

@@ -1,15 +1,12 @@
 package com.jojoldu.book.springboot.domain.svc;
 
 import com.jojoldu.book.springboot.domain.BaseTimeEntity;
+import com.jojoldu.book.springboot.domain.cust.Cust;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -38,4 +35,8 @@ public class Svc extends BaseTimeEntity {
         this.fee_prod_id = fee_prod_id;
         this.cust_num = cust_num;
     }
+
+    @ManyToOne
+    @JoinColumn(name="CUST_NUM")
+    private Cust cust;
 }

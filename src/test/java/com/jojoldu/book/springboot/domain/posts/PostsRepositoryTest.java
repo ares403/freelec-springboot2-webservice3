@@ -44,7 +44,7 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
     }
-
+/*
     @Test
     public void BaseTimeEntity_등록() {
         //given
@@ -65,4 +65,6 @@ public class PostsRepositoryTest {
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
     }
+
+ */
 }
